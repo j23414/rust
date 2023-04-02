@@ -1,0 +1,4 @@
+[dependencies]
+clap = "3.0" # argument parsing
+rust-bio-tools = "v0.42.0" # reading fasta
+bit-vec = "0.6.3" # bit vectors should be smaller than character vectors, learn serde
