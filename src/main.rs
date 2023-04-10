@@ -19,7 +19,7 @@ fn main() {
 
         // Allocate memory once then fill in values
         let mut bit_vec = BitVec::from_elem(record.seq().len()*4, false);
-// 
+
         let mut i=0;
         for base in sequence.iter() {
             match *base { // ACGT
@@ -77,6 +77,12 @@ fn main() {
                     bit_vec.set(i+1,true);
                     bit_vec.set(i+2,true);
                     bit_vec.set(i+3,true);
+                },
+                b'-' => { // Gap
+                    bit_vec.set(i,false);
+                    bit_vec.set(i+1,false);
+                    bit_vec.set(i+2,false);
+                    bit_vec.set(i+3,false);
                 },
                 _ => panic!("Invalid base: {}", base),
             }
